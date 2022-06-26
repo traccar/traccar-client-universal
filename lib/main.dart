@@ -28,8 +28,26 @@ class MyApp extends StatelessWidget {
       darkTheme: MacosThemeData.dark(),
       themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
-      home: const Center(
-        child: Text('Hello World'),
+      home: MacosWindow(
+        backgroundColor: MacosColor(0xff22131c),
+        child: MacosScaffold(
+          toolBar: const ToolBar(
+            title: Text('Traccar Client'),
+            centerTitle: true,
+          ),
+          backgroundColor: MacosColor(0xfff5eef2),
+          children: [
+            ContentArea(builder: (context, scrollController) {
+              return SingleChildScrollView(
+                child: Column(
+                  children: const [
+                    Text("data"),
+                  ],
+                ),
+              );
+            }),
+          ],
+        ),
       ),
     );
   }
